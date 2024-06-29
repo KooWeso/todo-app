@@ -1,0 +1,33 @@
+.new-todo-form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-todo-form__input {
+  width: 60%;
+  background-color: var(--background-elevated-base);
+  height: 3rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 10rem;
+}
+
+.new-todo-form__input:hover,
+.new-todo-form__input:focus {
+  outline: 2px solid var(--text-bright-accent);
+  background-color: var(--background-elevated-highlight);
+}
+
+.new-todo-form__submit {
+  background: transparent;
+  border-radius: 10rem;
+  display: flex;
+}
+
+.new-todo-form__submit-icon {
+  fill: var(--decorative-base);
+  width: 1.5rem;
+  height: 1.5rem;
+}

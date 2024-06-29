@@ -1,0 +1,49 @@
+.header {
+  background: linear-gradient(
+    var(--background-highlight),
+    var(--background-base)
+  );
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header__title {
+  margin-top: -1.5rem;
+  height: 5rem;
+  font-size: 4.2em;
+  letter-spacing: 0.125rem;
+  transform: translate(0rem, 0rem);
+  transition: transform 1s ease-out;
+}
+
+.header__title:hover {
+  cursor: pointer;
+  animation: brrr 0.5s infinite ease-in-out;
+}
+
+@keyframes brrr {
+  0% {
+    transform: translate(0.13rem, 0.13rem);
+  }
+  12.5% {
+    transform: translate(-0.13rem, 0.13rem);
+  }
+  25% {
+    transform: translate(-0.13rem, 0.13rem);
+  }
+  50% {
+    transform: translate(-0.13rem, -0.13rem);
+  }
+  75% {
+    transform: translate(0.13rem, -0.13rem);
+  }
+  82.5% {
+    transform: translate(0.13rem, -0.13rem);
+  }
+  100% {
+    transform: translate(0.13rem, 0.13rem);
+  }
+}

@@ -1,0 +1,26 @@
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.filters__btn {
+  background-color: transparent;
+  font-weight: 200;
+  font-size: 1.2rem;
+  min-height: 3rem;
+  min-width: 2rem;
+  color: var(--text-subdued);
+
+  transition: color 0.1s ease-in-out;
+}
+.filters__btn:hover {
+  color: var(--text-subdued);
+  transform: scale(1.05);
+}
+
+.filters__btn:active,
+.filters__btn:focus {
+  color: var(--text-bright-accent);
+}

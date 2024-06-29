@@ -1,0 +1,80 @@
+/* Hide the default checkbox */
+input[type='checkbox'] {
+  display: none;
+}
+
+.task {
+  border-radius: 0.25rem;
+  transition: background-color 0.333s ease-in-out;
+  background-color: var(--background-tinted-press);
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+.task:hover {
+  background-color: var(--background-tinted-highlight);
+}
+
+.task__view {
+  padding-left: 1rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+}
+
+.task__custom-checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 5rem;
+  transition: fill 0.1s ease-in-out;
+  fill: var(--decorative-subdued);
+}
+
+.task__custom-checkbox--checked {
+  box-shadow: 0 0 1rem var(--essential-bright-accent);
+  fill: var(--essential-bright-accent);
+}
+
+.task__label {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 1rem;
+  flex: 1;
+}
+
+.task__label-description {
+  color: var(--text-base);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task__label-created {
+  white-space: nowrap;
+  margin-left: auto;
+  color: var(--text-subdued);
+  font-size: 0.8rem;
+}
+
+.task__btn {
+  min-width: 2rem;
+  min-height: 2rem;
+  background-color: transparent;
+  transition: fill 0.1s ease-in-out;
+  fill: var(--essential-base);
+}
+
+.task__destroy:hover {
+  fill: var(--essential-negative);
+}
+
+.task__edit:hover {
+  fill: var(--text-announcement);
+}
