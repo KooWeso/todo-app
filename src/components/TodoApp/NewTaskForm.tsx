@@ -35,7 +35,7 @@ class NewTaskForm extends Component<FormProps, FormState> {
           e.preventDefault()
           addNewTodo(title)
           setTitle('')
-          this!.inputRef!.current!.focus()
+          this.inputRef.current!.focus()
         }}
       >
         <input

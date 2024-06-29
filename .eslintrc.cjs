@@ -13,6 +13,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
   ],
+
   ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules', 'build', 'vite-env.d.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -26,6 +27,12 @@ module.exports = {
   },
   plugins: ['react-refresh', 'react', '@typescript-eslint', 'prettier', 'import'],
   rules: {
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        vars: 'React',
+      },
+    ],
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     indent: ['error', 2],
     'prettier/prettier': ['error', { semi: false }],
