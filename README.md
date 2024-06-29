@@ -1,5 +1,5 @@
 # React + TypeScript + Vite
 
-## Vercel: [[link]]
+## [Vercel link](https://todo-app-eta-two-47.vercel.app/)
 
-> kooweso
+> ©kooweso
