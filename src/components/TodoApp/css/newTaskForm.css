@@ -14,6 +14,16 @@
   border-radius: 10rem;
 }
 
+.new-todo-form__input--timer {
+  width: 5.1rem;
+}
+
+@media (max-width: 600px) {
+  .new-todo-form__input--timer {
+    width: 3.3rem;
+  }
+}
+
 .new-todo-form__input:hover,
 .new-todo-form__input:focus {
   outline: 2px solid var(--text-bright-accent);

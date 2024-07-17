@@ -3,7 +3,7 @@ import React from 'react'
 import NewTaskForm from './NewTaskForm'
 import './css/header.css'
 
-type HeaderProps = { addNewTodo: (title: string) => void }
+type HeaderProps = { addNewTodo: (title: string, timer?: number) => void }
 function Header({ addNewTodo }: HeaderProps) {
   return (
     <header className="header">

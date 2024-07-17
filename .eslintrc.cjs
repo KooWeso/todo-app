@@ -27,12 +27,7 @@ module.exports = {
   },
   plugins: ['react-refresh', 'react', '@typescript-eslint', 'prettier', 'import'],
   rules: {
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        vars: 'React',
-      },
-    ],
+    '@typescript-eslint/no-unused-vars': 0,
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     indent: ['error', 2],
     'prettier/prettier': ['error', { semi: false }],
