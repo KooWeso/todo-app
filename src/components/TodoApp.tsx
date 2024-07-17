@@ -86,8 +86,8 @@ class TodoApp extends Component {
     const deleteComplited = () => {
       this.setState({
         todoItems: todoItems.filter((item: TodoItemType) => {
-          if (item.timer?.active) {
-            clearInterval(item.timer.interval)
+          if (item.checked && item.timer?.active) {
+            clearInterval(this.getTimer(item.id)!.interval)
           }
           return !item.checked
         }),
