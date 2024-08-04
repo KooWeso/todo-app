@@ -1,68 +1,43 @@
 module.exports = {
-  root: true,
-  env: { browser: true, es2021: true },
+  env: {
+    browser: true,
+    es2021: true,
+  },
   extends: [
-    'eslint:recommended',
     'airbnb',
     'airbnb-typescript',
+    'airbnb/hooks',
     'plugin:@typescript-eslint/recommended-type-checked',
-    'plugin:react-hooks/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:prettier/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
   ],
-
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules', 'build', 'vite-env.d.ts'],
+  overrides: [
+    {
+      env: {
+        node: true,
+      },
+      files: ['.eslintrc.{js,cjs}'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-      tsx: true,
-    },
-    ecmaVersion: 12,
+    ecmaVersion: 'latest',
     sourceType: 'module',
     project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
   },
-  plugins: ['react-refresh', 'react', '@typescript-eslint', 'prettier', 'import'],
+  plugins: ['@typescript-eslint', 'react', 'prettier'],
   rules: {
-    '@typescript-eslint/no-unused-vars': [
+    'import/no-extraneous-dependencies': [
       'error',
       {
-        vars: 'React',
-      },
-    ],
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    indent: ['error', 2],
-    'prettier/prettier': ['error', { semi: false }],
-    'linebreak-style': [0, 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'never'],
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 0,
-    'import/no-unresolved': [2, { caseSensitive: false }],
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
-    'import/order': [
-      2,
-      {
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-        'newlines-between': 'always',
+        devDependencies: ['vite.config.ts'],
+        optionalDependencies: ['vite.config.ts'],
+        peerDependencies: ['vite.config.ts'],
       },
     ],
   },
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        moduleDirectory: ['node_modules', 'src/'],
-      },
-    },
-  },
-}
-
-/*
-
-
-
-*/
+};
