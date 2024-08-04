@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import './css/task.css'
 import { formatDistanceToNow } from 'date-fns'
 
@@ -8,6 +8,12 @@ interface TaskProps {
     timestamp: Date
     id: string
     checked: boolean
+    timer?: {
+      init: number
+      current: number
+      active: boolean
+      interval: number
+    }
   }
   handlers: {
     handleDelete: (id: string) => void
@@ -33,7 +39,7 @@ class Task extends Component<TaskProps, { countdown: string }> {
     const { countdown } = this.state
 
     setInterval(() => {
-      const formated: string = formatDistanceToNow(timestamp, {
+      const formated: string | null = formatDistanceToNow(timestamp, {
         addSuffix: true,
         includeSeconds: true,
       })

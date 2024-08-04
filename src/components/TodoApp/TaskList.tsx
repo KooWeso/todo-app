@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import { ReactElement } from 'react'
 
 import Task from './Task'
 import './css/taskList.css'
@@ -8,6 +8,9 @@ interface TodoListProps<T> {
   handlers: {
     handleDelete: (id: string) => void
     handleCheck: (id: string) => void
+    startTimer: (id: string) => void
+    stopTimer: (id: string) => void
+    setTimer: (id: string, type: string, value: unknown) => void
   }
   filter: 'All' | 'Active' | 'Completed'
 }
@@ -17,6 +20,12 @@ type TodoItemType = {
   id: string
   checked: boolean
   timestamp: Date
+  timer?: {
+    init: number
+    current: number
+    active: boolean
+    interval: number
+  }
 }
 
 function TaskList({ items, handlers, filter = 'All' }: TodoListProps<TodoItemType>): ReactElement {

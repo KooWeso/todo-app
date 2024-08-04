@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Filters from './Filters'
 import './css/footer.css'
 
