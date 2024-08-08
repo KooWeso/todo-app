@@ -126,5 +126,7 @@ textarea {
   font-size: 1rem;
   font-weight: 600;
   text-align: justify;
+  word-break: break-all;
+  overflow-x: hidden;
   outline: 1.5px solid rgba(61, 146, 244, 0.5);
 }
