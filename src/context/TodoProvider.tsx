@@ -159,24 +159,33 @@ const useTodoContext = (initTodoState: TodoItems) => {
 
   const filteredItems = getFilteredItems()
 
-  const activeItemsLength: number = getFilteredItems('Active').length
+  const notDoneItemsLength: number = getFilteredItems('Active').length
   const allItemsLength: number = getFilteredItems('All').length
 
-  return { action, dispatch, startTimer, filteredItems, activeItemsLength, allItemsLength }
+  return {
+    action,
+    dispatch,
+    filter: state.filter,
+    startTimer,
+    filteredItems,
+    notDoneItemsLength,
+    allItemsLength,
+  }
 }
 
-type UseTodoContextType = ReturnType<typeof useTodoContext>
+export type UseTodoContextType = ReturnType<typeof useTodoContext>
 
 const initTodoContextState: UseTodoContextType = {
   action: reducerActions,
   dispatch: () => {},
   startTimer: () => {},
   filteredItems: [],
-  activeItemsLength: 0,
+  notDoneItemsLength: 0,
   allItemsLength: 0,
+  filter: 'All',
 }
 
-const TodoContext = createContext<UseTodoContextType>(initTodoContextState)
+export const TodoContext = createContext<UseTodoContextType>(initTodoContextState)
 
 type ChildrenType = { children: ReactElement | ReactElement[] | undefined }
 function TodoProvider({ children }: ChildrenType): ReactElement {

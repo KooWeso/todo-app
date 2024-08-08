@@ -1,13 +1,11 @@
-import { MouseEventHandler } from 'react'
+import useTodo from '../../hook/useTodo'
 import './css/filters.css'
 
-type FilterProps = {
-  setFilter: (filterType: 'All' | 'Active' | 'Completed') => void
-}
+function Filters() {
+  const { dispatch, action } = useTodo()
 
-function Filters({ setFilter }: FilterProps) {
-  const handleFilterChange = (type: 'All' | 'Active' | 'Completed'): MouseEventHandler<HTMLButtonElement> => {
-    return () => setFilter(type)
+  const handleFilterChange = (filter: 'All' | 'Active' | 'Completed') => () => {
+    dispatch({ type: action.CHANGE.FILTER, payload: { filter } })
   }
 
   return (

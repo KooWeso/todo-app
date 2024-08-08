@@ -1,14 +1,13 @@
 import NewTaskForm from './NewTaskForm'
 import './css/header.css'
 
-type HeaderProps = { addNewTodo: (title: string, timer?: number) => void }
-function Header({ addNewTodo }: HeaderProps) {
+function Header() {
   return (
     <header className="header">
       <h1 className="header__title" title="twerk">
         todos
       </h1>
-      <NewTaskForm addNewTodo={addNewTodo} />
+      <NewTaskForm />
     </header>
   )
 }

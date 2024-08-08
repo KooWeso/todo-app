@@ -1,26 +1,26 @@
+import useTodo from '../../hook/useTodo'
+
 import Filters from './Filters'
 import './css/footer.css'
 
-type FooterProps = {
-  setFilter: (filterType: 'All' | 'Active' | 'Completed') => void
-  deleteComplited: () => void
-  todoCount: number
-  todoInactive: number
-}
+function Footer() {
+  const { dispatch, action, allItemsLength, notDoneItemsLength } = useTodo()
 
-function Footer({ setFilter, deleteComplited, todoCount, todoInactive }: FooterProps) {
   let light: string = 'stop'
+  if (notDoneItemsLength) light = 'wait'
+  if (!notDoneItemsLength && allItemsLength) light = 'clear'
 
-  if (todoInactive === 0) light = 'stop'
-  else light = todoCount ? 'wait' : 'clear'
+  const handleClick = () => {
+    dispatch({ type: action.REMOVE_CHECKED, payload: {} })
+  }
 
   return (
     <footer className="footer">
-      <span className="footer__todo-count" title={todoCount ? `${todoCount} left` : 'lazy'}>
-        {todoCount ? `${todoCount} items left` : 'Add some tasks'}
+      <span className="footer__todo-count" title={notDoneItemsLength ? `${notDoneItemsLength} left` : 'lazy'}>
+        {notDoneItemsLength ? `${notDoneItemsLength} items left` : 'Add some tasks'}
       </span>
-      <Filters setFilter={setFilter} />
-      <button type="button" className="footer__clear-completed" onClick={() => deleteComplited()}>
+      <Filters />
+      <button type="button" className="footer__clear-completed" onClick={handleClick}>
         <span className="footer__clear-completed-text">Clear completed</span>
         <svg
           className={`footer__clear-completed-icon ${light}`}

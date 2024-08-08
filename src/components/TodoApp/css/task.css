@@ -113,3 +113,18 @@ input[type='checkbox'] {
   font-size: 1rem;
   padding: 0.5rem;
 }
+
+textarea {
+  min-width: 300px;
+  min-height: 60px;
+
+  border: transparent;
+  background-color: var(--background-tinted-highlight);
+  border-radius: 0.25rem;
+  padding-top: 1.2rem;
+  padding-left: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: justify;
+  outline: 1.5px solid rgba(61, 146, 244, 0.5);
+}
